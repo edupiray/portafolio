@@ -24,9 +24,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/assets/css/styles.css"
             ],
-            "scripts": []
+            "scripts": ["src/assets/js/scripts.js"]
           },
           "configurations": {
             "production": {
@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "portafolio-app"
+  "defaultProject": "portafolio-app",
+  "cli": {
+    "analytics": false
+  }
 }
