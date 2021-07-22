@@ -27,10 +27,4 @@ export class FormContactoComponent implements OnInit {
     });
   }
 
-  /*nuevo contacto por si ya se envio uno y se desea enviar otro*/
-  newContacto(): void {
-    this.enviado = false;
-    this.contacto = new Contacto();
-  }
-
 }

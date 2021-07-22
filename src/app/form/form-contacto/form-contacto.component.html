@@ -10,78 +10,76 @@
     </div>
     <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
       <div class="col-lg-6">
-        <!-- * * * * * * * * * * * * * * *-->
-        <!-- * * SB Forms Contact Form * *-->
-        <!-- * * * * * * * * * * * * * * *-->
-        <!-- This form is pre-integrated with SB Forms.-->
-        <!-- To make this form functional, sign up at-->
-        <!-- https://startbootstrap.com/solution/contact-forms-->
-        <!-- to get an API token!-->
-        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+        <form #contactoForm="ngForm" id="contactForm">
           <!-- Name input-->
           <div class="form-floating mb-3">
-            <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+            <input class="form-control" id="nombre" type="text" placeholder="Enter your name..." [(ngModel)]="contacto.nombre" name="nombre" required #nombre="ngModel" [disabled]="enviado"/>
             <label for="name">Nombre y Apellido</label>
-            <div class="invalid-feedback" data-sb-feedback="name:required">Un nombre es requerido.</div>
+            <div class="alert alert-danger" *ngIf="nombre.invalid && nombre.touched">
+              La nombre es requerido
+            </div>
+
           </div>
           <!-- Email address input-->
           <div class="form-floating mb-3">
-            <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+            <input class="form-control" type="email" id="email" placeholder="name@example.com" [(ngModel)]="contacto.email" name="email" required email #email="ngModel" [disabled]="enviado"/>
             <label for="email">Correo electrónico</label>
-            <div class="invalid-feedback" data-sb-feedback="email:required">Un email es requerido.</div>
-            <div class="invalid-feedback" data-sb-feedback="email:email">El email no es válido.</div>
+            <div class="alert alert-danger" *ngIf="email.invalid && email.touched">
+              <div *ngIf="email.errors.required">
+                El email es requerido
+              </div>
+              <div *ngIf="email.errors.email">
+                El email debe tener un formato valido
+              </div>
+            </div>
           </div>
           <!-- Phone number input-->
           <div class="form-floating mb-3">
-            <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
+            <input class="form-control" id="telefono" type="tel" placeholder="(123) 456-7890" [(ngModel)]="contacto.telefono" name="telefono" required #telefono="ngModel" [disabled]="enviado"/>
             <label for="phone">Número de teléfono</label>
-            <div class="invalid-feedback" data-sb-feedback="phone:required">Un número de teléfono es requerido.</div>
+            <div class="alert alert-danger" *ngIf="telefono.invalid && telefono.touched">
+              Un número de teléfono es requerido
+            </div>
           </div>
           <!-- Message input-->
           <div class="form-floating mb-3">
-            <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+            <textarea class="form-control" id="mensage" type="text" placeholder="Enter your message here..." [(ngModel)]="contacto.mensaje" name="mensaje" style="height: 10rem" required #mensaje="ngModel" [disabled]="enviado"></textarea>
             <label for="message">Mensaje</label>
-            <div class="invalid-feedback" data-sb-feedback="message:required">Un mensaje es requerido.</div>
-          </div>
-          <!-- Submit success message-->
-          <!---->
-          <!-- This is what your users will see when the form-->
-          <!-- has successfully submitted-->
-          <div class="d-none" id="submitSuccessMessage">
-            <div class="text-center mb-3">
-              <div class="fw-bolder">Form submission successful!</div>
-              To activate this form, sign up at
-              <br />
-              <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+            <div class="alert alert-danger" *ngIf="mensaje.invalid && mensaje.touched">
+              Un número mensaje es requerido
             </div>
           </div>
-          <!-- Submit error message-->
-          <!---->
-          <!-- This is what your users will see when there is-->
-          <!-- an error submitting the form-->
-          <div class="d-none" id="submitErrorMessage">
-            <div class="text-center text-danger mb-3">Error sending message!</div>
-          </div>
+
           <!-- Submit Button-->
-          <div class="d-grid"><button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Submit</button></div>
+          <div class="d-grid"><button [disabled]="contactoForm.form.invalid || enviado==true" class="btn btn-primary btn-xl" id="submitButton" (click)="guardarContacto()" type="submit">Enviar</button></div>
         </form>
       </div>
     </div>
+
+    <div *ngIf="enviado" class="alert alert-success" role="alert">
+      <h4 class="alert-heading">¡Muchas gracias!</h4>
+      <p>A la brevedad me pondré en contacto contigo. Un cordial saludo.</p>
+    </div>
+
     <div class="row gx-4 gx-lg-5 justify-content-center">
       <div class="col-lg-4 text-center mb-5 mb-lg-0">
         <i class="bi-phone fs-2 mb-3 text-muted"></i>
-        <div>+1 (555) 123-4567</div>
+        <div>+54 (3541) 583591</div>
       </div>
     </div>
   </div>
+
 </section>
 
+
+
+<!--
 <h1>Nuevo formulario</h1>
 <section>
   <div class="submit-form">
     <div *ngIf="!enviado">
       <div class="form-group">
-        <label for="title">Nombre</label>
+        <label for="nombre">Nombre</label>
         <input type="text" class="form-control" id="nombre" required [(ngModel)]="contacto.nombre" name="nombre" />
       </div>
 
@@ -97,7 +95,7 @@
 
       <div class="form-group">
         <label for="description">mensaje</label>
-        <input class="form-control" id="email" required [(ngModel)]="contacto.mensaje" name="email" />
+        <input class="form-control" id="mensaje" required [(ngModel)]="contacto.mensaje" name="mensaje" />
       </div>
 
       <button (click)="guardarContacto()" class="btn btn-success">Enviar</button>
@@ -110,3 +108,4 @@
   </div>
 
 </section>
+-->
