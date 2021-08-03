@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProyectoService } from './services/proyecto.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'portafolio-app';
+
+  constructor(public proyectoService: ProyectoService){} //hago la inyeccion cuando arranca la aplicacion
 }

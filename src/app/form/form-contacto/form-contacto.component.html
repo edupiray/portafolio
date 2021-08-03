@@ -10,32 +10,32 @@
     </div>
     <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
       <div class="col-lg-6">
-        <form #contactoForm="ngForm" id="contactForm">
+        <form *ngIf="!enviado" #contactoForm="ngForm" id="contactForm">
           <!-- Name input-->
           <div class="form-floating mb-3">
-            <input class="form-control" id="nombre" type="text" placeholder="Enter your name..." [(ngModel)]="contacto.nombre" name="nombre" required #nombre="ngModel" [disabled]="enviado"/>
+            <input class="form-control" id="nombre" type="text" placeholder="Enter your name..." [(ngModel)]="contacto.nombre" name="nombre" required #nombre="ngModel" />
             <label for="name">Nombre y Apellido</label>
             <div class="alert alert-danger" *ngIf="nombre.invalid && nombre.touched">
-              La nombre es requerido
+              Un nombre y apellido es requerido
             </div>
 
           </div>
           <!-- Email address input-->
           <div class="form-floating mb-3">
-            <input class="form-control" type="email" id="email" placeholder="name@example.com" [(ngModel)]="contacto.email" name="email" required email #email="ngModel" [disabled]="enviado"/>
+            <input class="form-control" type="email" id="email" placeholder="name@example.com" [(ngModel)]="contacto.email" name="email" required email #email="ngModel" />
             <label for="email">Correo electrónico</label>
             <div class="alert alert-danger" *ngIf="email.invalid && email.touched">
               <div *ngIf="email.errors.required">
-                El email es requerido
+                Un email es requerido
               </div>
               <div *ngIf="email.errors.email">
-                El email debe tener un formato valido
+                El email debe tener un formato válido
               </div>
             </div>
           </div>
           <!-- Phone number input-->
           <div class="form-floating mb-3">
-            <input class="form-control" id="telefono" type="tel" placeholder="(123) 456-7890" [(ngModel)]="contacto.telefono" name="telefono" required #telefono="ngModel" [disabled]="enviado"/>
+            <input class="form-control" id="telefono" type="tel" placeholder="(123) 456-7890" [(ngModel)]="contacto.telefono" name="telefono" required #telefono="ngModel" />
             <label for="phone">Número de teléfono</label>
             <div class="alert alert-danger" *ngIf="telefono.invalid && telefono.touched">
               Un número de teléfono es requerido
@@ -43,30 +43,35 @@
           </div>
           <!-- Message input-->
           <div class="form-floating mb-3">
-            <textarea class="form-control" id="mensage" type="text" placeholder="Enter your message here..." [(ngModel)]="contacto.mensaje" name="mensaje" style="height: 10rem" required #mensaje="ngModel" [disabled]="enviado"></textarea>
+            <textarea class="form-control" id="mensage" type="text" placeholder="Enter your message here..." [(ngModel)]="contacto.mensaje" name="mensaje" style="height: 10rem" required #mensaje="ngModel"></textarea>
             <label for="message">Mensaje</label>
             <div class="alert alert-danger" *ngIf="mensaje.invalid && mensaje.touched">
-              Un número mensaje es requerido
+              Un mensaje es requerido
             </div>
           </div>
 
           <!-- Submit Button-->
           <div class="d-grid"><button [disabled]="contactoForm.form.invalid || enviado==true" class="btn btn-primary btn-xl" id="submitButton" (click)="guardarContacto()" type="submit">Enviar</button></div>
-        </form>
-      </div>
-    </div>
 
-    <div *ngIf="enviado" class="alert alert-success" role="alert">
-      <h4 class="alert-heading">¡Muchas gracias!</h4>
-      <p>A la brevedad me pondré en contacto contigo. Un cordial saludo.</p>
+        </form>
+
+        <div *ngIf="enviado" class="alert alert-success" role="alert">
+          <h4 class="alert-heading">¡Muchas gracias!</h4>
+          <p>A la brevedad me pondré en contacto contigo. Un cordial saludo.</p>
+        </div>
+
+      </div>
     </div>
 
     <div class="row gx-4 gx-lg-5 justify-content-center">
       <div class="col-lg-4 text-center mb-5 mb-lg-0">
         <i class="bi-phone fs-2 mb-3 text-muted"></i>
         <div>+54 (3541) 583591</div>
+        <div><a target="_blank" href="https://www.linkedin.com/in/eduardoenriquepiray/"><i class="bi bi-linkedin fs-2 mb-3 text-muted"></i></a></div>
+        <div><a href="mailto:edupiray@gmail.com?subject=contacto"><i class="bi bi-envelope fs-2 mb-3 text-muted"></i></a></div>
       </div>
     </div>
+
   </div>
 
 </section>

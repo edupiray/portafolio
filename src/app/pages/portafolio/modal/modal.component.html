@@ -1,0 +1,40 @@
+<!-- Modal -->
+<div class="abrir-modal animacion fadeIn" *ngIf="modalService.ventanaModal" >
+  <div *ngIf="modalService.ventanaModal" class="modal" tabindex="-1" style="display:block;">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Detalle del Proyecto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="cerrarModal()"></button>
+        </div>
+        <div class="modal-body">
+          <p style="text-align: justify;">{{modalService.proyecto.descripcion}}</p><br>
+          <img class="img-fluid mx-auto d-block" [src]="modalService.proyecto.url_modal" alt="..." />
+          <hr><a *ngIf="modalService.proyecto.url_proyecto!='sinUrl'" href="{{modalService.proyecto.url_proyecto}}" target="_blank">URL del proyecto</a><hr>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cerrarModal()">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cerrarModal()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+-->

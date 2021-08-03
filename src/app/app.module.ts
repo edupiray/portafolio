@@ -13,6 +13,10 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { PortafolioComponent } from './pages/portafolio/portafolio.component';
 import { FormContactoComponent } from './form/form-contacto/form-contacto.component';
+import { ModalComponent } from './pages/portafolio/modal/modal.component';
+
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -21,14 +25,16 @@ import { FormContactoComponent } from './form/form-contacto/form-contacto.compon
     HeaderComponent,
     FooterComponent,
     PortafolioComponent,
-    FormContactoComponent
+    FormContactoComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
