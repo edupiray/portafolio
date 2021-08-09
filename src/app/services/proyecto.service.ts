@@ -24,7 +24,7 @@ export class ProyectoService {
     return this.http.get('https://app-portafolio-ang-default-rtdb.firebaseio.com/proyectos.json')
       .subscribe((proyectosResp:Proyecto) => {
         this.proyectos = proyectosResp;
-        console.log(this.proyectos); /*muestro en consola*/
+        //console.log(this.proyectos); /*muestro en consola*/
       });
   }
 }
