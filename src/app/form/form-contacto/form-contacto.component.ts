@@ -22,7 +22,7 @@ export class FormContactoComponent implements OnInit {
   /*guardar contacto en Firebase al enviar formulario*/
   guardarContacto(): void{
     this.contactoService.create(this.contacto).then(() => {
-      console.log('Contacto creado con éxito');
+      //console.log('Contacto creado con éxito');
       this.enviado = true;
     });
   }
