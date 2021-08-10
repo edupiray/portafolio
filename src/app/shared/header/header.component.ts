@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {NgxTypedJsModule} from 'ngx-typed-js';
 
 @Component({
   selector: 'app-header',

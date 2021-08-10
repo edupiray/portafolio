@@ -17,9 +17,6 @@ import { ModalComponent } from './pages/portafolio/modal/modal.component';
 
 import { HttpClientModule } from '@angular/common/http';
 
-import {NgxTypedJsModule} from 'ngx-typed-js';/*libreria typed*/
-
-
 
 @NgModule({
   declarations: [
@@ -36,8 +33,7 @@ import {NgxTypedJsModule} from 'ngx-typed-js';/*libreria typed*/
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    HttpClientModule,
-    NgxTypedJsModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

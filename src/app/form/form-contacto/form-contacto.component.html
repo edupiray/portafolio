@@ -1,6 +1,6 @@
 <!-- Contact-->
 <section class="page-section" id="contact">
-  <div class="container px-4 px-lg-5">
+  <div *ngIf="!enviado" class="container px-4 px-lg-5">
     <div class="row gx-4 gx-lg-5 justify-content-center">
       <div class="col-lg-8 col-xl-6 text-center">
         <h2 class="mt-0">¡Sigamos en contacto!</h2>
@@ -10,7 +10,7 @@
     </div>
     <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
       <div class="col-lg-6">
-        <form *ngIf="!enviado" #contactoForm="ngForm" id="contactForm">
+        <form #contactoForm="ngForm" id="contactForm">
           <!-- Name input-->
           <div class="form-floating mb-3">
             <input class="form-control" id="nombre" type="text" placeholder="Enter your name..." [(ngModel)]="contacto.nombre" name="nombre" required #nombre="ngModel" />
@@ -55,17 +55,21 @@
 
         </form>
 
-        <div *ngIf="enviado" class="alert alert-success" role="alert">
-          <h4 class="alert-heading">¡Muchas gracias!</h4>
-          <p>A la brevedad me pondré en contacto contigo. Un cordial saludo.</p>
-        </div>
-
       </div>
 
     </div>
 
   </div>
 
+  <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+    <div class="col-lg-6">
+      <div *ngIf="enviado" class="alert alert-success" role="alert">
+        <h4 class="alert-heading">¡Muchas gracias!</h4>
+        <p>A la brevedad me pondré en contacto contigo. Un cordial saludo.</p>
+      </div>
+    </div>
+  </div>
+  
   <div class="row gx-4 gx-lg-5 justify-content-center">
     <div class="col-lg-4 text-center mb-5 mb-lg-0">
       <i class="bi-phone fs-2 mb-3 text-muted"></i><div>+54 9 (3541) 583591</div>
