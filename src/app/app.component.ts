@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ProyectoService } from './services/proyecto.service';
+import {NgxTypedJsModule} from 'ngx-typed-js';
 
 @Component({
   selector: 'app-root',
